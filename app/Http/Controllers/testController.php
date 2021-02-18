@@ -4,14 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Test;
-use App\Models\Pregunta;
 
 class testController extends Controller
 {
     public function postTest(Request $request)
 {
     try {
-        $pregunta = Pregunta::all()->first();
         $test = new Test();
         $test->name = $request->name;
         

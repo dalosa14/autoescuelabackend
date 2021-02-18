@@ -27,5 +27,6 @@ Route::post('postModalidad', [App\Http\Controllers\ModalidadPermisoController::c
 Route::get('getModalidades', [App\Http\Controllers\ModalidadPermisoController::class, 'getModalidadesPermiso']);
 Route::post('postTest', [App\Http\Controllers\testController::class, 'postTest']);
 Route::get('getTests', [App\Http\Controllers\testController::class, 'getTest']);
-Route::post('postTest', [App\Http\Controllers\testController::class, 'postTest']);
-Route::get('getTests', [App\Http\Controllers\testController::class, 'getTest']);
+Route::post('postPregunta', [App\Http\Controllers\PreguntaController::class, 'postPregunta']);
+Route::get('getPreguntasTest/{test_id}', [App\Http\Controllers\PreguntaController::class, 'getPreguntasTest']);
+Route::get('getOpciones/{pregunta_id}', [App\Http\Controllers\OpcionesPreguntaController::class, 'getOpciones']);

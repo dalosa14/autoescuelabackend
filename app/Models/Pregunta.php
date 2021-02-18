@@ -13,4 +13,8 @@ class Pregunta extends Model
 	{
 		return $this->belongsTo('App\Models\Test');
 	}
+    public function opciones()
+	{
+		return $this->hasMany('App\Models\Opciones');
+	}
 }

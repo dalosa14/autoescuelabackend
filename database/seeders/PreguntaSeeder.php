@@ -18,8 +18,8 @@ class PreguntaSeeder extends Seeder
     {
         DB::table('preguntas')->delete();
         $tests=Test::all();
-        $tests->each(function ($user) {
-            Pregunta::factory()->count(2)->create(['test_id' => $user-> id ]);
+        $tests->each(function ($test) {
+            Pregunta::factory()->count(2)->create(['test_id' => $test-> id ]);
         });
     }
 }
