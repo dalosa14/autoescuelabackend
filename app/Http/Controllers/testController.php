@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Test;
-
+//se añade un nuevo test ,si todo va bien se envia una coonfirmación, si no se puede, devuelve el error 
 class testController extends Controller
 {
     public function postTest(Request $request)
@@ -26,6 +26,7 @@ class testController extends Controller
    
 
 }
+//devuelve todos los tests disponibles si no se puede devuelve un error 
     public function getTest(Request $request)
 {
     try {

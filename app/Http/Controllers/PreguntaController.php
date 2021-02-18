@@ -8,6 +8,7 @@ use App\Models\Opciones;
 
 class PreguntaController extends Controller
 {
+    //guarda una pregunta asociada a un test deevuelve una confirmación de la acción o un error 
     public function postPregunta(Request $request)
     {
         try {
@@ -28,6 +29,7 @@ class PreguntaController extends Controller
        
     
     }
+    //devuelve las preguntas del test pasado por parametro con sus opciones
     public function getPreguntasTest($test_id)
 {
     try {
