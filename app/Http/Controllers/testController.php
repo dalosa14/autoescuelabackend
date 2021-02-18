@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Test;
-//se añade un nuevo test ,si todo va bien se envia una coonfirmación, si no se puede, devuelve el error 
 class testController extends Controller
 {
+    //se añade un nuevo test ,si todo va bien se envia una coonfirmación, si no se puede, devuelve el error 
+
     public function postTest(Request $request)
 {
     try {

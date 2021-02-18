@@ -7,6 +7,7 @@ use App\Models\ModalidadPermiso;
 
 class ModalidadPermisoController extends Controller
 {
+    //se añade una nueva modalidad,devuelve la confirmación de la acción, sinó el error.
     public function postModalidadesPermiso(Request $request)
     {
         try {
@@ -16,7 +17,6 @@ class ModalidadPermisoController extends Controller
             $modalidad->code =$request->code;
             $modalidad->description =$request->description;
             $modalidad->active =1;
-            // $modalidad->permiso()->attach(1);
 
             $modalidad->save();
             return response()->json(['Success'=>'true',
@@ -30,6 +30,7 @@ class ModalidadPermisoController extends Controller
        
     
     }
+    //devuelve todas las modalidades disponibles , sinó se puede,devuelve el error.
         public function getModalidadesPermiso(Request $request)
     {
         try {

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Permiso;
+
 class PermisosController extends Controller
 {
+    //se añade un nuevo permiso 
     public function postPermiso(Request $request)
 {
     try {

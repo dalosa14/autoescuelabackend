@@ -11,6 +11,9 @@ use GrahamCampbell\ResultType\Success;
 
 class LoginController extends Controller
 {
+    //funcion de logueo, se envia el campò email y password y verifica si son validos conjuntamente,
+    //si no lo son devuelve un campo error con 'Credenciales no válidas' 
+    //si si lo son devuelve el token que será necesario para la autentificación.
     public function login(Request $request)
     {
         $usuario = User::where('email', $request->email)->first();
@@ -22,9 +25,20 @@ class LoginController extends Controller
             return response()->json(['token' => $usuario->createToken($usuario->email)->plainTextToken]);
         }
     }
+    //funcion de registro comprueba que el payload email es un email, si ya existe notificado de ambas si es el caso, 
+    //y devolviendo el nuevo usuario si todo va bien, si ocurre cualquier otro error se devolvera en la respuesta.
     public function register(Request $request)
     {
         try {
+            $result = filter_var( $request->email, FILTER_VALIDATE_EMAIL );
+            if (!$result) {
+                return response()->json(['Success'=>'false',
+                'msg'=>'el correo no es valido',
+                'errorCode'=>1
+            ], 200);
+            }
+                
+            
             $usuario = User::where('email', $request->email)->exists();
             if ($usuario) {
                 return response()->json(['Success'=>'false',

@@ -7,10 +7,10 @@ use App\Models\Opciones;
 
 class OpcionesPreguntaController extends Controller
 {
+    //se añade una opcion a una pregunta , si todo va bien , devuelve confiramación si ha ido bien y sinó el error.
     public function postOpcion(Request $request)
 {
     try {
-        // $opciones = Opciones::where('pregunta_id','=','$request->pregunta_id')->get();
         $opcion = new Opciones();
         $opcion->texto = $request->texto;
         $opcion->correcto = $request->correcto;
@@ -27,6 +27,7 @@ class OpcionesPreguntaController extends Controller
    
 
 }
+//devuelve las opciones de una pregunta en concreto pasado por parametro, si la encuentra la dduevuelve, sinó, devuelve el error.
 public function getOpciones($pregunta_id)
 {
     try {
