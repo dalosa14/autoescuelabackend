@@ -19,7 +19,7 @@ class OpcionesSeeder extends Seeder
         DB::table('opciones')->delete();
         $preguntas=Pregunta::all();
         $preguntas->each(function ($pregunta) {
-            Opciones::factory()->count(2)->create(['pregunta_id' => $pregunta-> id ]);
+            Opciones::factory()->count(4)->create(['pregunta_id' => $pregunta-> id ]);
         });
     }
 }

@@ -23,7 +23,7 @@ class OpcionesFactory extends Factory
     {
         return [
             'texto' => $this->faker->name,
-            'correcto'=> true,
+            'correcto'=> $this->faker->boolean(20),
         ];
     }
 }

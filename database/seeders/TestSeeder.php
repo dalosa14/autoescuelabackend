@@ -16,6 +16,6 @@ class TestSeeder extends Seeder
     public function run()
     {
         DB::table('tests')->delete();
-        Test::factory()->count(2)->create();
+        Test::factory()->count(30)->create();
     }
 }
