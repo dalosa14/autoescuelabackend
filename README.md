@@ -47,9 +47,11 @@ poner el contenido de la carpeta dist en algun servidor nginx, apache ...
 git clone https://github.com/dalosa14/autoescuelabackend.git
 cd autoescuelabackend
 composer install 
+php artisan migrate:fresh --seed 
 php artisan serve
 ```
 - Luego se debe crear una base de datos con el nombre **autoescuela**
+- se de deben de poner la direccion y claves de la base de datos en el archivo .env
 - debe de abrirse el sevicio en el dominio y puerto y protocolo siguiente: **http://localhost:8000**
 
 > si se quisiese poner en producción habria que tocar el archivo env con bastante cuidado y concretamente por lo que no lo voy a tratar aquí.
