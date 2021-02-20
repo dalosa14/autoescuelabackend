@@ -21,12 +21,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('login', [App\Http\Controllers\LoginController::class, 'login']);
 Route::post('register', [App\Http\Controllers\LoginController::class, 'register']);
 //permisos
-Route::post('postPermiso', [App\Http\Controllers\PermisosController::class, 'postPermiso']);
-Route::get('getPermisos', [App\Http\Controllers\PermisosController::class, 'getPermisos']);
-Route::post('postModalidad', [App\Http\Controllers\ModalidadPermisoController::class, 'postModalidadesPermiso']);
-Route::get('getModalidades', [App\Http\Controllers\ModalidadPermisoController::class, 'getModalidadesPermiso']);
-Route::post('postTest', [App\Http\Controllers\testController::class, 'postTest']);
-Route::get('getTests', [App\Http\Controllers\testController::class, 'getTest']);
-Route::post('postPregunta', [App\Http\Controllers\PreguntaController::class, 'postPregunta']);
-Route::get('getPreguntasTest/{test_id}', [App\Http\Controllers\PreguntaController::class, 'getPreguntasTest']);
-Route::get('getOpciones/{pregunta_id}', [App\Http\Controllers\OpcionesPreguntaController::class, 'getOpciones']);
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::post('postPermiso', [App\Http\Controllers\PermisosController::class, 'postPermiso']);
+    Route::get('getPermisos', [App\Http\Controllers\PermisosController::class, 'getPermisos']);
+    Route::post('postModalidad', [App\Http\Controllers\ModalidadPermisoController::class, 'postModalidadesPermiso']);
+    Route::get('getModalidades', [App\Http\Controllers\ModalidadPermisoController::class, 'getModalidadesPermiso']);
+    Route::post('postTest', [App\Http\Controllers\testController::class, 'postTest']);
+    Route::get('getTests', [App\Http\Controllers\testController::class, 'getTest']);
+    Route::post('postPregunta', [App\Http\Controllers\PreguntaController::class, 'postPregunta']);
+    Route::get('getPreguntasTest/{test_id}', [App\Http\Controllers\PreguntaController::class, 'getPreguntasTest']);
+    Route::get('getOpciones/{pregunta_id}', [App\Http\Controllers\OpcionesPreguntaController::class, 'getOpciones']);
+    
+});
